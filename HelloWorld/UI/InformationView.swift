@@ -8,20 +8,29 @@
 import SwiftUI
 
 struct InformationView: View {
-    var information: Information? = nil
+    var information: Information
     var fields: [(String, String)]{[
-        ("First name",information!.firstName),
-        ("Last name",information!.lastName),
-        ("Gender",information!.gender),
-        ("Weight",String(information!.weight)),
-        ("Height",String(information!.height))
+        ("First name",information.firstName ?? ""),
+        ("Last name",information.lastName ?? ""),
+        ("Gender",information.gender ?? ""),
+        ("Weight",String(information.weight ?? 0)),
+        ("Height",String(information.height ?? 0))
     ]}
     var body: some View {
-        VStack {
-            ForEach(0..<Int(fields.count)) { index in
-                InformContentView(title: fields[index].0, content: fields[index].1)
+        HStack(alignment: .top, spacing: 30){
+            VStack {
+                ForEach(0..<3) { index in
+                    InformContentView(title: fields[index].0, content: fields[index].1)
+                }
+            }
+            VStack {
+                ForEach(3..<5) { index in
+                    InformContentView(title: fields[index].0, content: fields[index].1)
+                }
             }
         }
+        .padding()
+        
     }
 }
 

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var information: Information = Information(firstName: "", lastName: "", gender: "Nam", weight: 0, height: 0)
+    @State var information: Information = Information()
     @State var displayInfo: Information? = nil
     var fields: [(String, String, Binding<String>)] {[
-        ("First name", "Enter first name", $information.firstName),
-        ("Last name", "Enter last name", $information.lastName),
+        ("First name", "Enter first name", $information.firstName.string),
+        ("Last name", "Enter last name", $information.lastName.string),
         ("Weight", "Enter weight", $information.weight.string),
         ("Height", "Enter height", $information.height.string)
     ]}
@@ -26,7 +26,7 @@ struct ContentView: View {
                     NameView(firstName: fields[index].2, title: fields[index].0, placeholder: fields[index].1)
                 }
             }.padding(.horizontal, 20.0)
-            GenderSelector(selectedGender: $information.gender)
+            GenderSelector(selectedGender: $information.gender.string)
             VStack {
                 ForEach(2..<4) { index in
 //                    var weightString = String(information.weight)
@@ -35,6 +35,9 @@ struct ContentView: View {
             }
             .padding(.horizontal, 20)
 //            informationView
+            if let displayInfo {
+                InformationView(information: displayInfo)
+            }
             Button(action: {
                     displayInfo = information
 //                informationView
@@ -45,9 +48,6 @@ struct ContentView: View {
             .background(Color.red)
             .foregroundColor(Color.white)
             .cornerRadius(10)
-            if let displayInfo {
-                InformationView(information: displayInfo)
-            }
 //            Text(
 //            Spacer()
         })
@@ -56,7 +56,7 @@ struct ContentView: View {
     }
 }
 struct GenderSelector: View {
-    @Binding var selectedGender: String
+    @Binding var selectedGender: String 
     let genders = ["Nam", "Nữ"]
     var body: some View {
         
@@ -93,6 +93,40 @@ extension Binding where Value == Double{
                 "\(self.wrappedValue)"
             }, set: {
                 self.wrappedValue = Double($0) ?? 0
+            }
+        )
+    }
+}
+extension Binding where Value == String?{
+    var string: Binding<String>{
+        Binding<String>(
+            get: {
+                if let val =  self.wrappedValue{
+                    return val
+                }else{
+                    return ""
+                }
+            }, set: {
+                self.wrappedValue = $0
+            }
+        )
+    }
+}
+extension Binding where Value == Double?{
+    var string: Binding<String>{
+        Binding<String>(
+            get: {
+                if let val = self.wrappedValue{
+                    return String(val)
+                }else{
+                    return ""
+                }
+            }, set: {
+                if let v = Double($0){
+                    self.wrappedValue = v
+                }else{
+                    self.wrappedValue = nil
+                }
             }
         )
     }
