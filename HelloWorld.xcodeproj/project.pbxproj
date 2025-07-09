@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		2C5ECAA22E1CF8A700AD6A18 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C5ECAA22E1CF8A700AD6A18 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = HelloWorld.app; path = "/Users/ef2025/Documents/SwiftUI/HelloWorld/build/Debug-iphoneos/HelloWorld.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2C5ECAA42E1CF8A700AD6A18 /* HelloWorld */ = {
+		2C5ECAE02E1E466500AD6A18 /* HelloWorld */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = HelloWorld;
 			sourceTree = "<group>";
@@ -32,17 +32,8 @@
 		2C5ECA992E1CF8A700AD6A18 = {
 			isa = PBXGroup;
 			children = (
-				2C5ECAA42E1CF8A700AD6A18 /* HelloWorld */,
-				2C5ECAA32E1CF8A700AD6A18 /* Products */,
+				2C5ECAE02E1E466500AD6A18 /* HelloWorld */,
 			);
-			sourceTree = "<group>";
-		};
-		2C5ECAA32E1CF8A700AD6A18 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2C5ECAA22E1CF8A700AD6A18 /* HelloWorld.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -61,7 +52,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2C5ECAA42E1CF8A700AD6A18 /* HelloWorld */,
+				2C5ECAE02E1E466500AD6A18 /* HelloWorld */,
 			);
 			name = HelloWorld;
 			packageProductDependencies = (
@@ -95,7 +86,7 @@
 			mainGroup = 2C5ECA992E1CF8A700AD6A18;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2C5ECAA32E1CF8A700AD6A18 /* Products */;
+			productRefGroup = 2C5ECA992E1CF8A700AD6A18;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

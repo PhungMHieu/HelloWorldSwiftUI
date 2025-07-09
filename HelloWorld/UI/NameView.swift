@@ -7,8 +7,8 @@
 import SwiftUI
 
 
-struct ExtractedView: View {
-    @State var firstName: String = ""
+struct NameView: View {
+    @Binding var firstName: String
     var title: String
     var placeholder: String
     var body: some View {
